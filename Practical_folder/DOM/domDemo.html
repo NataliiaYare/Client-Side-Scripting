@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Intro</title>
+    <style>
+        button {
+            display: flex;
+        }
+    </style>
+
+    <script>
+        function changeParagraph() {
+            document.getElementById("p1").innerHTML = "My name is Nataliia. Hi.";
+
+        }
+
+        function changeParagraphColor() {
+            document.getElementById("p1").style.color = "orange";
+        }
+
+        function changeBackgroundColor() {
+            document.body.style.backgroundColor = "blue";
+
+        }
+
+        function changeFontSize() {
+            document.getElementById("p1").style.fontSize = "26px";
+        }
+
+        function changeFontFamily() {
+            document.getElementById("p1").style.fontFamily = "Verdana";
+        }
+
+        function clearAllChanges() {
+            document.getElementById("p1").style.color = "black";
+            document.getElementById("p1").style.fontFamily = "Arial";
+            document.body.style.backgroundColor = "blue";
+            document.getElementById("p1").style.fontSize = "16px";
+
+        }
+
+        function changeBackgroundColorAgain() {
+            document.body.style.backgroundColor = "green";
+        }
+
+    </script>
+
+</head>
+
+<body onload="changeParagraph(); changeParagraphColor(); changeBackgroundColor();">
+
+    <p id="p1"></p>
+
+    <button onclick="changeFontSize(); changeFontFamily(); changeParagraphColor()" type="button">Style my text</button>
+
+    <button onclick="changeBackgroundColorAgain()" type="button">Change background Color</button>
+
+    <button onclick="clearAllChanges()" type="button">Clear All Changes</button>
+</body>
+
+</html>
