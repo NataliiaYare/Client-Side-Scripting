@@ -1,0 +1,48 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: palegreen;
+  box-sizing: border-box;
+}
+
+.container {
+  text-align: center;
+  background-color: azure;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 80%;
+  height: 80%;
+  border-radius: 20% 5%;
+}
+
+label {
+  width: 30%;
+  height: 5%;
+  margin-left: 5%;
+  border: 2px solid rgb(143, 139, 139);
+  vertical-align: center;
+  margin-top: 1%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  width: 25%;
+  height: 5%;
+  margin-left: 5%;
+  margin-top: 1%;
+  text-align: center;
+}
+
+button {
+  width: 20%;
+  margin-left: 5%;
+  margin-top: 1%;
+  height: 5%;
+}
