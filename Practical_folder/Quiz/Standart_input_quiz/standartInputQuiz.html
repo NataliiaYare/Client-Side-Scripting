@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Standart Quize</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js"></script>
 </head>
 
-<body>
+<body onload="setQuestions()">
     <div class="container">
         <h1>GCC Numpties Geographt Quiz</h1>
 
@@ -23,7 +24,7 @@
 
         <label for="" id="score"></label>
 
-        <button>Submit</button>
+        <button onclick="checkAnswers()">Submit</button>
 
 
 
@@ -31,7 +32,7 @@
 
     </div>
 
-    <script src="js/script.js"></script>
+
 </body>
 
 </html>
