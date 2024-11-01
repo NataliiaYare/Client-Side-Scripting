@@ -1,0 +1,101 @@
+function setQuestions() {
+  const quizForm = document.getElementById("quizForm");
+  // Loop through each question in the array
+  questions.forEach((q, index) => {
+    // Create a div element for each question
+    const questionDiv = document.createElement("div");
+    questionDiv.classList.add("question");
+    questionDiv.innerHTML = `<p>${index + 1}. ${q.question}</p>`;
+
+    // Add text input if the question type is "text"
+    if (q.type === "text") {
+      questionDiv.innerHTML += `<input type="text" name="question${index}" />`;
+    }
+    // Add radio button inputs if the question type is "radio"
+    else if (q.type === "radio") {
+      const optionsDiv = document.createElement("div");
+      optionsDiv.classList.add("options");
+      q.options.forEach((option) => {
+        optionsDiv.innerHTML += `
+                            <label><input type="radio" name="question${index}" value="${option}" />${option}</label>
+                        `;
+      });
+      questionDiv.appendChild(optionsDiv);
+    }
+    // Add checkbox inputs if the question type is "checkbox"
+    else if (q.type === "checkbox") {
+      const optionsDiv = document.createElement("div");
+      optionsDiv.classList.add("options");
+      q.options.forEach((option) => {
+        optionsDiv.innerHTML += `
+                            <label><input type="checkbox" name="question${index}" value="${option}" />${option}</label>
+                        `;
+      });
+      questionDiv.appendChild(optionsDiv);
+    }
+    quizForm.appendChild(questionDiv); // Append each question div to the form
+  });
+}
+
+// Initialize questions on page load
+/**
+ * Checks the user's answers and provides feedback
+ */
+function checkAnswers() {
+  let score = 0;
+  // Loop through each question in the array
+  questions.forEach((q, index) => {
+    const userAnswer = document.getElementsByName(`question${index}`);
+    const questionDiv = document.getElementsByClassName("question")[index];
+    let isCorrect = false;
+
+    // Check if text answer is correct
+    if (q.type === "text") {
+      if (userAnswer[0].value.trim().toLowerCase() === q.answer.toLowerCase()) {
+        score++;
+        isCorrect = true;
+      }
+    }
+    // Check if radio answer is correct
+    else if (q.type === "radio") {
+      for (let i = 0; i < userAnswer.length; i++) {
+        if (userAnswer[i].checked && userAnswer[i].value === q.answer) {
+          score++;
+          isCorrect = true;
+        }
+      }
+    }
+    // Check if checkbox answer is correct
+    else if (q.type === "checkbox") {
+      const checkedValues = Array.from(userAnswer)
+        .filter((input) => input.checked)
+        .map((input) => input.value);
+      if (
+        JSON.stringify(checkedValues.sort()) === JSON.stringify(q.answer.sort())
+      ) {
+        score++;
+        isCorrect = true;
+      }
+    }
+
+    // Highlight correct and incorrect answers
+    if (isCorrect) {
+      questionDiv.classList.add("correct-answer");
+    } else {
+      questionDiv.classList.add("incorrect-answer");
+    }
+  });
+
+  // Display results and pass/fail message
+  const resultDiv = document.getElementById("result");
+  const passingScore = 6;
+  if (score >= passingScore) {
+    resultDiv.innerHTML = `Congratulations! You scored ${score}/10. You passed the quiz!`;
+    resultDiv.classList.add("pass");
+    resultDiv.classList.remove("fail");
+  } else {
+    resultDiv.innerHTML = `You scored ${score}/10. You did not pass the quiz. Try again!`;
+    resultDiv.classList.add("fail");
+    resultDiv.classList.remove("pass");
+  }
+}
