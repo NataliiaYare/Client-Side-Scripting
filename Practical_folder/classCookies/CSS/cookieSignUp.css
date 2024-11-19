@@ -1,0 +1,28 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: gold;
+  box-sizing: border-box;
+  font-size: 18px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background-image: url(../img/Chocolate-Chip-Cookies-15-1200-1.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.wrapper {
+  padding: 40px;
+  background-color: cornsilk;
+  border-radius: 30px;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
