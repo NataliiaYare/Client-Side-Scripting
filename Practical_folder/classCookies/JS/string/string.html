@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 20px;
+            font-family: Helvetica;
+        }
+
+        .wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 10px;
+        }
+
+        .box {
+            background-color: #20262e;
+            color: #fff;
+            border-radius: 3px;
+            padding: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="box a">First position: </div>
+        <div class="box b">Last position: </div>
+    </div>
+    <!-- <script>
+            var str = "Where does the word blah appear";
+            var pos = str.indexOf("blah");
+    
+            var phrase = "boo!!";
+            var len = phrase.length;
+    
+            //there is no forgiveness for your crime.
+    
+            document.write(pos);
+            document.write("<br>");
+            document.write(len);
+        </script> -->
+    <script>
+        var str = "Please find where find occurs!";
+        var firstpos = str.indexOf("find"); // Position of first occurrence of "find"
+        var lastpos = str.lastIndexOf("find"); // Position of last occurrence of "find"
+
+        // Adding results to the HTML elements
+        document.getElementsByClassName("box a")[0].innerHTML += firstpos;
+        document.getElementsByClassName("box b")[0].innerHTML += lastpos;
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Original string and search term
+        var str = "JavaScript and Java are programming languages. JAVA is case-sensitive.";
+        var low_str = str.toLowerCase(); // Convert the string to lowercase
+        var search = "JAVa"; // Search term
+        var low_search = search.toLowerCase(); // Convert search term to lowercase
+
+        // Display the flattened string and search term
+        document.write("Low string is : " + low_str + "<br>");
+        document.write("Search term is : " + low_search + "<br>");
+
+        // Find the first and last occurrence of the search term in the string
+        var pos = low_str.indexOf(low_search);
+        var lastpos = low_str.lastIndexOf(low_search);
+
+        // Display the positions
+        document.write("Word appears at position : " + pos + "<br>");
+        document.write("Word last appears at position : " + lastpos);
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

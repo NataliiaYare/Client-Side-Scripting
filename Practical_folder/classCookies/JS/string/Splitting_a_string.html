@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var path = window.location.href;
+
+        var path_split = path.split(":");
+        var secure = path_split[0];
+
+        if (secure == "https") {
+            alert("document is secure");
+        }
+
+        else {
+            alert("document may not be secure");
+        }
+    </script>
+</body>
+
+</html>
